@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5FA10522088E7171DB1D443C /* Pods_NotesRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A262BD91663D959E4B594419 /* Pods_NotesRealm.framework */; };
 		EDE84BF22228F3580036335E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE84BF12228F3580036335E /* AppDelegate.swift */; };
 		EDE84BF42228F3580036335E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE84BF32228F3580036335E /* ViewController.swift */; };
 		EDE84BF72228F3580036335E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDE84BF52228F3580036335E /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		527ED18D1C56493A3A1C2B23 /* Pods-NotesRealm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotesRealm.release.xcconfig"; path = "Pods/Target Support Files/Pods-NotesRealm/Pods-NotesRealm.release.xcconfig"; sourceTree = "<group>"; };
+		8077C07FBA9DB53F1E3D074A /* Pods-NotesRealm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotesRealm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NotesRealm/Pods-NotesRealm.debug.xcconfig"; sourceTree = "<group>"; };
+		A262BD91663D959E4B594419 /* Pods_NotesRealm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotesRealm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDE84BEE2228F3580036335E /* NotesRealm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotesRealm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDE84BF12228F3580036335E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDE84BF32228F3580036335E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FA10522088E7171DB1D443C /* Pods_NotesRealm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F42EB50B81A027B5000EC1D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A262BD91663D959E4B594419 /* Pods_NotesRealm.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF23AFCF56B83FC7F663E473 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8077C07FBA9DB53F1E3D074A /* Pods-NotesRealm.debug.xcconfig */,
+				527ED18D1C56493A3A1C2B23 /* Pods-NotesRealm.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EDE84BE52228F3580036335E = {
 			isa = PBXGroup;
 			children = (
 				EDE84BF02228F3580036335E /* NotesRealm */,
 				EDE84BEF2228F3580036335E /* Products */,
+				BF23AFCF56B83FC7F663E473 /* Pods */,
+				0F42EB50B81A027B5000EC1D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EDE84C002228F3590036335E /* Build configuration list for PBXNativeTarget "NotesRealm" */;
 			buildPhases = (
+				1CE9C66A500964DAE0D268A7 /* [CP] Check Pods Manifest.lock */,
 				EDE84BEA2228F3580036335E /* Sources */,
 				EDE84BEB2228F3580036335E /* Frameworks */,
 				EDE84BEC2228F3580036335E /* Resources */,
+				9D0C6CA1E0659184FEA4A06F /* [CP] Embed Pods Frameworks */,
+				0E3FA1A1564C54F578077F67 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,64 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E3FA1A1564C54F578077F67 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NotesRealm/Pods-NotesRealm-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1CE9C66A500964DAE0D268A7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NotesRealm-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D0C6CA1E0659184FEA4A06F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NotesRealm/Pods-NotesRealm-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NotesRealm/Pods-NotesRealm-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EDE84BEA2228F3580036335E /* Sources */ = {
@@ -280,15 +365,13 @@
 		};
 		EDE84C012228F3590036335E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8077C07FBA9DB53F1E3D074A /* Pods-NotesRealm.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D6A85H8M23;
 				INFOPLIST_FILE = NotesRealm/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.omaraldair.NotesRealm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -298,15 +381,13 @@
 		};
 		EDE84C022228F3590036335E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 527ED18D1C56493A3A1C2B23 /* Pods-NotesRealm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D6A85H8M23;
 				INFOPLIST_FILE = NotesRealm/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.omaraldair.NotesRealm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
