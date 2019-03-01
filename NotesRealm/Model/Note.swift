@@ -14,4 +14,7 @@ class Note : Object{
     
     @objc dynamic var title: String = ""
     @objc dynamic var check : Bool = false
+    
+    // Indicar la relación de que las notas pertenecen a una sóla categoría
+    var parentCategory = LinkingObjects(fromType: Category.self, property: "notes")
 }

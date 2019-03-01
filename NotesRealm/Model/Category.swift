@@ -15,4 +15,6 @@ class Category : Object{
     @objc dynamic var color: UIColor?
     @objc dynamic var image: Data?
     
+    // Relación de que la categoría tiene muchas notas
+    let notes = List<Note>()
 }
