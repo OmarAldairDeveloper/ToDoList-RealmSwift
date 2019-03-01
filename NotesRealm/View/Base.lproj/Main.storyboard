@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="abt-9h-9oa">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Categories Collection View Controller-->
+        <scene sceneID="XP3-cV-D6i">
+            <objects>
+                <collectionViewController id="mj1-EE-org" customClass="CategoriesCollectionViewController" customModule="NotesRealm" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="dwc-Rh-Fmj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GZi-Of-h6F">
+                            <size key="itemSize" width="137" height="185"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCell" id="M2P-Dv-R3g" customClass="CategoryCell" customModule="NotesRealm" customModuleProvider="target">
+                                <rect key="frame" x="10" y="10" width="137" height="185"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="137" height="185"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BNU-UH-RfL">
+                                            <rect key="frame" x="0.0" y="0.0" width="137" height="137"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="BNU-UH-RfL" secondAttribute="height" multiplier="1:1" id="6c0-QG-W1i"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1Mf-Ar-Etg">
+                                            <rect key="frame" x="1" y="138" width="135" height="46"/>
+                                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="1Mf-Ar-Etg" firstAttribute="top" secondItem="BNU-UH-RfL" secondAttribute="bottom" constant="1" id="8ir-7C-bfG"/>
+                                    <constraint firstItem="1Mf-Ar-Etg" firstAttribute="leading" secondItem="M2P-Dv-R3g" secondAttribute="leading" constant="1" id="Ahk-db-HZ5"/>
+                                    <constraint firstItem="BNU-UH-RfL" firstAttribute="top" secondItem="M2P-Dv-R3g" secondAttribute="top" id="bIA-La-SNk"/>
+                                    <constraint firstItem="BNU-UH-RfL" firstAttribute="leading" secondItem="M2P-Dv-R3g" secondAttribute="leading" id="bWO-gO-uam"/>
+                                    <constraint firstAttribute="trailing" secondItem="BNU-UH-RfL" secondAttribute="trailing" id="idD-QL-2UX"/>
+                                    <constraint firstAttribute="trailing" secondItem="1Mf-Ar-Etg" secondAttribute="trailing" constant="1" id="qif-zn-mgm"/>
+                                    <constraint firstAttribute="bottom" secondItem="1Mf-Ar-Etg" secondAttribute="bottom" constant="1" id="rcy-AT-xS7"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="categoryLabel" destination="1Mf-Ar-Etg" id="7ai-qt-v1g"/>
+                                    <outlet property="imageView" destination="BNU-UH-RfL" id="34B-qo-Uj8"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="mj1-EE-org" id="Tdc-k6-b4K"/>
+                            <outlet property="delegate" destination="mj1-EE-org" id="Hab-fb-sG0"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="cEC-nl-CSe"/>
+                    <connections>
+                        <segue destination="IlY-qA-TAB" kind="show" identifier="categoriesToNotes" id="A4K-yB-b2c"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u0n-U5-ReN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="855.20000000000005" y="-30.134932533733135"/>
+        </scene>
+        <!--Notes Table View Controller-->
+        <scene sceneID="SUM-4X-7y5">
+            <objects>
+                <tableViewController id="IlY-qA-TAB" customClass="NotesTableViewController" customModule="NotesRealm" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ynd-rC-gce">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="73" id="RNN-5X-6vY">
+                                <rect key="frame" x="0.0" y="28" width="375" height="73"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RNN-5X-6vY" id="CtN-2G-cwo">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="72.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="IlY-qA-TAB" id="jsO-DZ-Ilj"/>
+                            <outlet property="delegate" destination="IlY-qA-TAB" id="DH6-zp-ogF"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gQ1-7w-oZd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1644" y="-30.134932533733135"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jJ3-vM-Q2W">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="abt-9h-9oa" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xdw-dD-2kW">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mj1-EE-org" kind="relationship" relationship="rootViewController" id="0dn-bL-sEb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mzm-ef-0FX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-84" y="-30.134932533733135"/>
+        </scene>
+    </scenes>
+</document>
