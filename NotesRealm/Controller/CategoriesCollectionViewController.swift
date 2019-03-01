@@ -54,7 +54,15 @@ class CategoriesCollectionViewController: UICollectionViewController {
     
         return cell
     }
-
+    
+    
+    
+    @IBAction func addNewCategoryButton(_ sender: UIBarButtonItem) {
+        
+        self.performSegue(withIdentifier: "categoriesToAdd", sender: self)
+        
+    }
+    
     // MARK: UICollectionViewDelegate
 
     /*
