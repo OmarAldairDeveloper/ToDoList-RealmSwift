@@ -8,8 +8,9 @@
 
 import UIKit
 import RealmSwift
+import SwipeCellKit
 
-class NotesTableViewController: UITableViewController {
+class NotesTableViewController: UITableViewController, SwipeTableViewCellDelegate {
     
     let realm = try! Realm()
     
@@ -95,7 +96,8 @@ class NotesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath) as! SwipeTableViewCell
+        cell.delegate = self
         
         if let note = notes?[indexPath.row]{
             
@@ -138,6 +140,34 @@ class NotesTableViewController: UITableViewController {
         }
         
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
+    
+    // MARK: SwipeTableViewCellDelegate
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        let deleteAction = SwipeAction(style: .destructive, title: "Eliminar") { action, indexPath in
+            
+            // Eliminar de realm
+            print("Queremos eliminar")
+        }
+        
+        let editAction = SwipeAction(style: .default, title: "Editar") { (action, indexPath) in
+            
+            print("Queremos editar")
+        }
+        
+        // customize the action appearance
+        deleteAction.image = UIImage(named: "delete")
+        editAction.image = UIImage(named: "edit")
+        editAction.backgroundColor = UIColor(red: CGFloat(253)/255, green: CGFloat(182)/255, blue: 0, alpha: 1.0)
+        
+        return [deleteAction, editAction]
+    }
 
 }
 
@@ -164,3 +194,5 @@ extension NotesTableViewController : UISearchBarDelegate{
     }
     
 }
+
+
