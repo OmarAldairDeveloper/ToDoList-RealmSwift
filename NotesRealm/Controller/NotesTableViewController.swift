@@ -99,10 +99,42 @@ class NotesTableViewController: UITableViewController {
         if let note = notes?[indexPath.row]{
             
             cell.textLabel?.text = note.title
+            
+            if note.check{
+                cell.accessoryType = .checkmark
+            }else{
+                cell.accessoryType = .none
+            }
+            
         }
         
+
         return cell
         
+        
+    }
+    
+    
+    // MARK: UITableViewDelegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let note = notes?[indexPath.row]{
+            
+            do{
+                try realm.write {
+                    note.check = !note.check // Cambiar el estado de la nota
+                }
+            }catch{
+                print("No se pudo guardar el estado de la nota")
+            }
+            
+            tableView.cellForRow(at: indexPath)?.accessoryType = (note.check ? .checkmark : .none)
+            
+            
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+            
+        }
         
     }
 
