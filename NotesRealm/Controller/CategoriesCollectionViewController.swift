@@ -30,7 +30,6 @@ class CategoriesCollectionViewController: UICollectionViewController {
     override func viewDidAppear(_ animated: Bool) {
         
         // Hacer consulta a la base de datos
-        
         self.categories = realm.objects(Category.self)
         collectionView.reloadData()
     }
@@ -73,6 +72,32 @@ class CategoriesCollectionViewController: UICollectionViewController {
     
         return cell
     }
+    
+    
+    // MARK: UICollectionViewDelegate
+    
+    var idx = -1
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        idx = indexPath.row
+        self.performSegue(withIdentifier: "CategoriesToNotes", sender: self)
+        
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "CategoriesToNotes"{
+            let destinationVC = segue.destination as! NotesTableViewController
+            destinationVC.category = self.categories![idx] // Pasar la categoría completa
+        }
+    }
+    
+    
+    
+    
+    
     
     
     
