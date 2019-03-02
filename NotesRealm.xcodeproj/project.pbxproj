@@ -10,6 +10,7 @@
 		5FA10522088E7171DB1D443C /* Pods_NotesRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A262BD91663D959E4B594419 /* Pods_NotesRealm.framework */; };
 		ED02BDDB222996F600AE0F0A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED02BDDA222996F600AE0F0A /* Category.swift */; };
 		ED02BDDD2229973E00AE0F0A /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED02BDDC2229973E00AE0F0A /* Note.swift */; };
+		ED32330D2229D245007219A6 /* AddNewCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32330C2229D245007219A6 /* AddNewCategoryViewController.swift */; };
 		EDACC88B2228F76000D7BD78 /* CategoriesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACC88A2228F76000D7BD78 /* CategoriesCollectionViewController.swift */; };
 		EDACC88D2228F77400D7BD78 /* NotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACC88C2228F77400D7BD78 /* NotesTableViewController.swift */; };
 		EDACC88F2228F8DF00D7BD78 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACC88E2228F8DF00D7BD78 /* CategoryCell.swift */; };
@@ -25,6 +26,7 @@
 		A262BD91663D959E4B594419 /* Pods_NotesRealm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotesRealm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED02BDDA222996F600AE0F0A /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		ED02BDDC2229973E00AE0F0A /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		ED32330C2229D245007219A6 /* AddNewCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCategoryViewController.swift; sourceTree = "<group>"; };
 		EDACC88A2228F76000D7BD78 /* CategoriesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewController.swift; sourceTree = "<group>"; };
 		EDACC88C2228F77400D7BD78 /* NotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewController.swift; sourceTree = "<group>"; };
 		EDACC88E2228F8DF00D7BD78 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				EDE84BF12228F3580036335E /* AppDelegate.swift */,
 				EDACC88A2228F76000D7BD78 /* CategoriesCollectionViewController.swift */,
 				EDACC88C2228F77400D7BD78 /* NotesTableViewController.swift */,
+				ED32330C2229D245007219A6 /* AddNewCategoryViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				EDACC88B2228F76000D7BD78 /* CategoriesCollectionViewController.swift in Sources */,
 				EDE84BF22228F3580036335E /* AppDelegate.swift in Sources */,
 				EDACC88F2228F8DF00D7BD78 /* CategoryCell.swift in Sources */,
+				ED32330D2229D245007219A6 /* AddNewCategoryViewController.swift in Sources */,
 				ED02BDDD2229973E00AE0F0A /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

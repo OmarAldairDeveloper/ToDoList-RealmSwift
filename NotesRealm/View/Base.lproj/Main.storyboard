@@ -70,8 +70,9 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="KtB-I7-z1m">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="addNewCategoryButton:" destination="mj1-EE-org" id="Fdz-lw-te5"/>
-                                <segue destination="9GG-lv-C35" kind="presentation" identifier="categoriesToAdd" id="dwH-zA-z7s"/>
+                                <segue destination="9GG-lv-C35" kind="popoverPresentation" identifier="" popoverAnchorBarButtonItem="KtB-I7-z1m" id="Sek-86-EZg">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -83,34 +84,78 @@
             </objects>
             <point key="canvasLocation" x="855.20000000000005" y="-30.134932533733135"/>
         </scene>
-        <!--View Controller-->
+        <!--Add New Category View Controller-->
         <scene sceneID="WeA-eD-FHa">
             <objects>
-                <viewController id="9GG-lv-C35" sceneMemberID="viewController">
+                <viewController id="9GG-lv-C35" customClass="AddNewCategoryViewController" customModule="NotesRealm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kcC-Ze-WGi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4dW-qz-jMr">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="4dW-qz-jMr">
                                 <rect key="frame" x="87.5" y="30" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Qki-cE-tXh"/>
                                     <constraint firstAttribute="height" constant="200" id="RFr-nL-chj"/>
                                 </constraints>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="dJY-2Q-XqX">
+                                <rect key="frame" x="71" y="531" width="233" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiK-9O-PFl">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
+                                        <color key="backgroundColor" red="1" green="0.14959081090000001" blue="0.0086397835220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Hqn-D6-BeD"/>
+                                            <constraint firstAttribute="width" constant="100" id="m1Q-SH-1Yx"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                        <state key="normal" title="Cancelar">
+                                            <color key="titleColor" red="1" green="0.99928568490000003" blue="0.9906943278" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelAction:" destination="9GG-lv-C35" eventType="touchUpInside" id="GvK-Ox-DrH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TA3-B4-jKn">
+                                        <rect key="frame" x="133" y="0.0" width="100" height="50"/>
+                                        <color key="backgroundColor" red="0.0019621192921635551" green="0.69101378673350256" blue="0.0030444067336062633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="6Db-NK-xIL"/>
+                                            <constraint firstAttribute="height" constant="50" id="Muw-sf-uAz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
+                                        <state key="normal" title="Guardar">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveCategoryAction:" destination="9GG-lv-C35" eventType="touchUpInside" id="sVs-zz-LjV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre de la categoria" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mhn-zD-Jtj">
+                                <rect key="frame" x="20" y="240" width="335" height="30"/>
+                                <color key="backgroundColor" red="0.94270174364148063" green="0.94270174364148063" blue="0.94270174364148063" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="M09-ez-PI8">
-                                <rect key="frame" x="20" y="260" width="335" height="231"/>
+                                <rect key="frame" x="20" y="280" width="335" height="231"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OPW-7x-1zw">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
                                         <subviews>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ktm-VN-JAK">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ktm-VN-JAK">
                                                 <rect key="frame" x="-2" y="0.0" width="299" height="31"/>
                                                 <color key="minimumTrackTintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="maximumTrackTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="thumbTintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="sliderValueAction:" destination="9GG-lv-C35" eventType="valueChanged" id="ewN-Dj-zSx"/>
+                                                </connections>
                                             </slider>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="255" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="idK-Qo-krE">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="idK-Qo-krE">
                                                 <rect key="frame" x="305" y="5" width="30" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="cr4-Sb-E8W"/>
@@ -124,13 +169,16 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8hz-eA-8yG">
                                         <rect key="frame" x="0.0" y="67" width="335" height="30"/>
                                         <subviews>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="UOS-Md-jXz">
+                                            <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="UOS-Md-jXz">
                                                 <rect key="frame" x="-2" y="0.0" width="299" height="31"/>
                                                 <color key="minimumTrackTintColor" red="0.0019621192920000002" green="0.69101378670000002" blue="0.003044406734" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="maximumTrackTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="thumbTintColor" red="0.0019621192920000002" green="0.69101378670000002" blue="0.003044406734" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="sliderValueAction:" destination="9GG-lv-C35" eventType="valueChanged" id="DCm-C5-vMo"/>
+                                                </connections>
                                             </slider>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="255" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BLI-0t-II0">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BLI-0t-II0">
                                                 <rect key="frame" x="305" y="5" width="30" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="RbJ-Gf-f6D"/>
@@ -144,13 +192,16 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mO5-al-76l">
                                         <rect key="frame" x="0.0" y="134" width="335" height="30"/>
                                         <subviews>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Os4-zW-2XW">
+                                            <slider opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Os4-zW-2XW">
                                                 <rect key="frame" x="-2" y="0.0" width="299" height="31"/>
                                                 <color key="minimumTrackTintColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="maximumTrackTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="thumbTintColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="sliderValueAction:" destination="9GG-lv-C35" eventType="valueChanged" id="xOr-wH-4w8"/>
+                                                </connections>
                                             </slider>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="255" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Agh-7a-tC8">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Agh-7a-tC8">
                                                 <rect key="frame" x="305" y="5" width="30" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="aBs-4d-OmK"/>
@@ -164,10 +215,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rO0-Bd-7lH">
                                         <rect key="frame" x="0.0" y="201" width="335" height="30"/>
                                         <subviews>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Umu-Ix-d1e">
+                                            <slider opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Umu-Ix-d1e">
                                                 <rect key="frame" x="-2" y="0.0" width="299" height="31"/>
                                                 <color key="minimumTrackTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="maximumTrackTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="sliderValueAction:" destination="9GG-lv-C35" eventType="valueChanged" id="7Xl-XT-f5z"/>
+                                                </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gp3-Q0-u6P">
                                                 <rect key="frame" x="305" y="5" width="30" height="20.5"/>
@@ -182,52 +236,38 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="dJY-2Q-XqX">
-                                <rect key="frame" x="71" y="541" width="233" height="50"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiK-9O-PFl">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
-                                        <color key="backgroundColor" red="1" green="0.14959081090000001" blue="0.0086397835220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Hqn-D6-BeD"/>
-                                            <constraint firstAttribute="width" constant="100" id="m1Q-SH-1Yx"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
-                                        <state key="normal" title="Cancelar">
-                                            <color key="titleColor" red="1" green="0.99928568490000003" blue="0.9906943278" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TA3-B4-jKn">
-                                        <rect key="frame" x="133" y="0.0" width="100" height="50"/>
-                                        <color key="backgroundColor" red="0.0019621192921635551" green="0.69101378673350256" blue="0.0030444067336062633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="6Db-NK-xIL"/>
-                                            <constraint firstAttribute="height" constant="50" id="Muw-sf-uAz"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
-                                        <state key="normal" title="Guardar">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4dW-qz-jMr" firstAttribute="centerX" secondItem="M09-ez-PI8" secondAttribute="centerX" id="4Dt-ya-NHO"/>
                             <constraint firstItem="gMU-pN-J2Y" firstAttribute="trailing" secondItem="M09-ez-PI8" secondAttribute="trailing" constant="20" id="8FJ-tm-So5"/>
-                            <constraint firstItem="M09-ez-PI8" firstAttribute="top" secondItem="4dW-qz-jMr" secondAttribute="bottom" constant="30" id="Nmu-Bv-mQ0"/>
                             <constraint firstItem="M09-ez-PI8" firstAttribute="leading" secondItem="gMU-pN-J2Y" secondAttribute="leading" constant="20" id="P7H-FI-HAf"/>
+                            <constraint firstItem="mhn-zD-Jtj" firstAttribute="leading" secondItem="gMU-pN-J2Y" secondAttribute="leading" constant="20" id="Rry-oM-Hwj"/>
                             <constraint firstItem="4dW-qz-jMr" firstAttribute="top" secondItem="gMU-pN-J2Y" secondAttribute="top" constant="10" id="cQ9-QR-7yn"/>
-                            <constraint firstItem="dJY-2Q-XqX" firstAttribute="top" secondItem="M09-ez-PI8" secondAttribute="bottom" constant="50" id="fdb-8g-2tE"/>
+                            <constraint firstItem="M09-ez-PI8" firstAttribute="top" secondItem="mhn-zD-Jtj" secondAttribute="bottom" constant="10" id="ekv-aK-qPA"/>
+                            <constraint firstItem="mhn-zD-Jtj" firstAttribute="top" secondItem="4dW-qz-jMr" secondAttribute="bottom" constant="10" id="evj-qf-v0x"/>
+                            <constraint firstItem="dJY-2Q-XqX" firstAttribute="top" secondItem="M09-ez-PI8" secondAttribute="bottom" constant="20" id="hbN-Pp-hJ8"/>
                             <constraint firstItem="dJY-2Q-XqX" firstAttribute="centerX" secondItem="kcC-Ze-WGi" secondAttribute="centerX" id="u20-tY-GKa"/>
+                            <constraint firstItem="gMU-pN-J2Y" firstAttribute="trailing" secondItem="mhn-zD-Jtj" secondAttribute="trailing" constant="20" id="vKN-ei-sjt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gMU-pN-J2Y"/>
                     </view>
+                    <connections>
+                        <outlet property="imageCategory" destination="4dW-qz-jMr" id="Mtp-id-V3b"/>
+                        <outlet property="textField" destination="mhn-zD-Jtj" id="NE4-I9-ocU"/>
+                        <outletCollection property="labels" destination="idK-Qo-krE" collectionClass="NSMutableArray" id="8Sb-2c-KTE"/>
+                        <outletCollection property="labels" destination="BLI-0t-II0" collectionClass="NSMutableArray" id="Oxz-Hl-057"/>
+                        <outletCollection property="labels" destination="Agh-7a-tC8" collectionClass="NSMutableArray" id="jCO-LM-ndd"/>
+                        <outletCollection property="labels" destination="gp3-Q0-u6P" collectionClass="NSMutableArray" id="hFE-Sa-6OL"/>
+                        <outletCollection property="sliders" destination="Ktm-VN-JAK" collectionClass="NSMutableArray" id="gJb-1R-tZ6"/>
+                        <outletCollection property="sliders" destination="UOS-Md-jXz" collectionClass="NSMutableArray" id="OPe-Rx-Ypr"/>
+                        <outletCollection property="sliders" destination="Os4-zW-2XW" collectionClass="NSMutableArray" id="jZg-lN-1H4"/>
+                        <outletCollection property="sliders" destination="Umu-Ix-d1e" collectionClass="NSMutableArray" id="5XH-vF-bcM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPH-HF-3jt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="853.60000000000002" y="702.99850074962524"/>
+            <point key="canvasLocation" x="853.60000000000002" y="805.54722638680664"/>
         </scene>
         <!--Notes Table View Controller-->
         <scene sceneID="SUM-4X-7y5">
@@ -280,4 +320,7 @@
             <point key="canvasLocation" x="-84" y="-30.134932533733135"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera" width="153.60000610351562" height="153.60000610351562"/>
+    </resources>
 </document>
