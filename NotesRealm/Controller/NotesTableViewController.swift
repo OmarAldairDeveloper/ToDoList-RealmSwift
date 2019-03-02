@@ -77,6 +77,7 @@ class NotesTableViewController: UITableViewController {
         
         
         self.notes = category?.notes.sorted(byKeyPath: "title")
+        self.tableView.reloadData()
     }
     
     
@@ -138,4 +139,28 @@ class NotesTableViewController: UITableViewController {
         
     }
 
+}
+
+extension NotesTableViewController : UISearchBarDelegate{
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        // Buscar al dar click
+        
+        guard let text = searchBar.text else { return }
+        
+        notes = category?.notes.filter(NSPredicate(format: "title CONTAINS[cd] %@", text)).sorted(byKeyPath: "title", ascending: true) // Hacer consulta filtrada
+        tableView.reloadData()
+        
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0{
+            loadNotes() // Cargar todas, no las filtradas
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder() // Ya que es un trabajo de la vista, por eso lo trabajamos en el hilo principal
+            }
+            
+        }
+    }
+    
 }
