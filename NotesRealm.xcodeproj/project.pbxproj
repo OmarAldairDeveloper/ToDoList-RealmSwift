@@ -18,6 +18,7 @@
 		EDE84BF72228F3580036335E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDE84BF52228F3580036335E /* Main.storyboard */; };
 		EDE84BF92228F3590036335E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDE84BF82228F3590036335E /* Assets.xcassets */; };
 		EDE84BFC2228F3590036335E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDE84BFA2228F3590036335E /* LaunchScreen.storyboard */; };
+		EDEBC89D222C69E500E4A3C3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEBC89C222C69E500E4A3C3 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		EDE84BF82228F3590036335E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDE84BFB2228F3590036335E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EDE84BFD2228F3590036335E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDEBC89C222C69E500E4A3C3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				EDE84BF82228F3590036335E /* Assets.xcassets */,
 				EDE84BFA2228F3590036335E /* LaunchScreen.storyboard */,
 				EDACC88E2228F8DF00D7BD78 /* CategoryCell.swift */,
+				EDEBC89C222C69E500E4A3C3 /* Extensions.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				ED02BDDB222996F600AE0F0A /* Category.swift in Sources */,
 				EDACC88B2228F76000D7BD78 /* CategoriesCollectionViewController.swift in Sources */,
 				EDE84BF22228F3580036335E /* AppDelegate.swift in Sources */,
+				EDEBC89D222C69E500E4A3C3 /* Extensions.swift in Sources */,
 				EDACC88F2228F8DF00D7BD78 /* CategoryCell.swift in Sources */,
 				ED32330D2229D245007219A6 /* AddNewCategoryViewController.swift in Sources */,
 				EDDCF6FF222A1E870019E8AE /* NotesTableViewController.swift in Sources */,

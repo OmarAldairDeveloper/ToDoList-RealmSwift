@@ -76,7 +76,7 @@ class AddNewCategoryViewController: UIViewController, UIImagePickerControllerDel
         
         let category = Category()
         category.title = text
-        //category.color = self.view.backgroundColor
+        //category.color = self.view.backgroundColor?.toString()
         category.image = self.imageCategory.image?.pngData()
         
         

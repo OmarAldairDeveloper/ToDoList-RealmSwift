@@ -153,7 +153,20 @@ class NotesTableViewController: UITableViewController, SwipeTableViewCellDelegat
         let deleteAction = SwipeAction(style: .destructive, title: "Eliminar") { action, indexPath in
             
             // Eliminar de realm
-            print("Queremos eliminar")
+            
+            if let note = self.notes?[indexPath.row]{
+                
+                do{
+                   
+                    try self.realm.write {
+                        self.realm.delete(note)
+                        self.tableView.reloadData()
+                    }
+                }catch{
+                    print("No se pudo eliminar la nota")
+                }
+                
+            }
         }
         
         let editAction = SwipeAction(style: .default, title: "Editar") { (action, indexPath) in
