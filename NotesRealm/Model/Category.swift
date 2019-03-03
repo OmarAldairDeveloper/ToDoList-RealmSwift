@@ -12,7 +12,7 @@ import RealmSwift
 class Category : Object{
     
     @objc dynamic var title: String = ""
-    //@objc dynamic var color: String?
+    @objc dynamic var color: String?
     @objc dynamic var image: Data?
     
     // Relación de que la categoría tiene muchas notas

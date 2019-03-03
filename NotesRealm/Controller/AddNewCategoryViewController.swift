@@ -16,6 +16,8 @@ class AddNewCategoryViewController: UIViewController, UIImagePickerControllerDel
     @IBOutlet var labels: [UILabel]!
     @IBOutlet var sliders: [UISlider]!
     
+    var color: String = ""
+    
     let imagePicker = UIImagePickerController()
     
     let realm = try! Realm()
@@ -76,7 +78,7 @@ class AddNewCategoryViewController: UIViewController, UIImagePickerControllerDel
         
         let category = Category()
         category.title = text
-        //category.color = self.view.backgroundColor?.toString()
+        category.color = UIColor(hex: color)?.toHex
         category.image = self.imageCategory.image?.pngData()
         
         
@@ -109,6 +111,7 @@ class AddNewCategoryViewController: UIViewController, UIImagePickerControllerDel
         let colorBack = UIColor(red: CGFloat(sliders[0].value), green: CGFloat(sliders[1].value), blue: CGFloat(sliders[2].value), alpha: CGFloat(sliders[3].value))
         
         self.view.backgroundColor = colorBack
+        self.color = colorBack.toHex!
     }
     
     

@@ -66,7 +66,7 @@ class CategoriesCollectionViewController: UICollectionViewController {
             
             cell.categoryLabel.text = category.title
             cell.imageView.image = UIImage(data: category.image!)
-            cell.backgroundColor = UIColor.red
+            cell.backgroundColor = UIColor(hex: category.color!)
             
         }
     
