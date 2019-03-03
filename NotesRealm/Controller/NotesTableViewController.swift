@@ -171,7 +171,35 @@ class NotesTableViewController: UITableViewController, SwipeTableViewCellDelegat
         
         let editAction = SwipeAction(style: .default, title: "Editar") { (action, indexPath) in
             
-            print("Queremos editar")
+            // Editar en Realm
+            guard let note = self.notes?[indexPath.row] else { return }
+            let alert = UIAlertController(title: "Editar la nota", message: "", preferredStyle: .alert)
+            
+            alert.addTextField{ (txtField) in
+                txtField.text = note.title
+            }
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                
+                guard let newText = alert.textFields?.first?.text else { return }
+                
+                do{
+                    
+                    try self.realm.write {
+                        
+                        note.title = newText // Editar nota
+                        self.tableView.reloadData()
+                    }
+                    
+                }catch{
+                    print("No se pudo editar la nota")
+                }
+                
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true)
         }
         
         // customize the action appearance
