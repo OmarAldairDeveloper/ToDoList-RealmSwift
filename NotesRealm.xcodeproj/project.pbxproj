@@ -11,6 +11,7 @@
 		ED02BDDB222996F600AE0F0A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED02BDDA222996F600AE0F0A /* Category.swift */; };
 		ED02BDDD2229973E00AE0F0A /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED02BDDC2229973E00AE0F0A /* Note.swift */; };
 		ED32330D2229D245007219A6 /* AddNewCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32330C2229D245007219A6 /* AddNewCategoryViewController.swift */; };
+		ED562E73222DA7F4003565D4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED562E72222DA7F4003565D4 /* MapKit.framework */; };
 		EDACC88B2228F76000D7BD78 /* CategoriesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACC88A2228F76000D7BD78 /* CategoriesCollectionViewController.swift */; };
 		EDACC88F2228F8DF00D7BD78 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACC88E2228F8DF00D7BD78 /* CategoryCell.swift */; };
 		EDDCF6FF222A1E870019E8AE /* NotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDCF6FE222A1E870019E8AE /* NotesTableViewController.swift */; };
@@ -28,6 +29,7 @@
 		ED02BDDA222996F600AE0F0A /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		ED02BDDC2229973E00AE0F0A /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		ED32330C2229D245007219A6 /* AddNewCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCategoryViewController.swift; sourceTree = "<group>"; };
+		ED562E72222DA7F4003565D4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		EDACC88A2228F76000D7BD78 /* CategoriesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewController.swift; sourceTree = "<group>"; };
 		EDACC88E2228F8DF00D7BD78 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		EDDCF6FE222A1E870019E8AE /* NotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED562E73222DA7F4003565D4 /* MapKit.framework in Frameworks */,
 				5FA10522088E7171DB1D443C /* Pods_NotesRealm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -55,6 +58,7 @@
 		0F42EB50B81A027B5000EC1D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED562E72222DA7F4003565D4 /* MapKit.framework */,
 				A262BD91663D959E4B594419 /* Pods_NotesRealm.framework */,
 			);
 			name = Frameworks;
@@ -173,6 +177,14 @@
 				TargetAttributes = {
 					EDE84BED2228F3580036335E = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.WAC = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};

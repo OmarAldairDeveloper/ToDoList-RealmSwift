@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 import SwipeCellKit
+import UserNotifications
 
 class NotesTableViewController: UITableViewController, SwipeTableViewCellDelegate {
     
@@ -33,11 +34,15 @@ class NotesTableViewController: UITableViewController, SwipeTableViewCellDelegat
     
     @IBAction func addNewNoteAction(_ sender: UIBarButtonItem) {
         
+        
+        
         let alert = UIAlertController(title: "Agregar nueva nota", message: "", preferredStyle: .alert)
         
         alert.addTextField { (txtField) in
             txtField.placeholder = "Agrega tu nota"
         }
+        
+    
         
         alert.addAction(UIAlertAction(title: "Crear", style: .default, handler: { (action) in
             
@@ -46,7 +51,41 @@ class NotesTableViewController: UITableViewController, SwipeTableViewCellDelegat
             let note = Note()
             note.title = text
             note.check = false
+            
+            
+            
+            
             self.persistNotes(note)
+            
+            
+            // Notificación: Contenido
+            let center = UNUserNotificationCenter.current()
+            
+            let content = UNMutableNotificationContent()
+            content.title = "Test"
+            content.body = "This is a test of local notifications"
+            content.sound = UNNotificationSound.default
+            content.threadIdentifier = "local-notifications temp"
+            
+            
+            // Notificación: parámetros de la fecha y hora -> fecha
+            let dateComponents = DateComponents(year: 2019, month: 03, day: 04, hour: 13, minute: 20)
+            let date = Calendar.current.date(from: dateComponents)
+            let comp2 = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute],from: date!)
+            // Lanzador de la notificación
+            let trigger = UNCalendarNotificationTrigger(dateMatching: comp2, repeats: false)
+            
+            // Ejecución de la notificación
+            let request = UNNotificationRequest(identifier: "content", content: content, trigger: trigger)
+            
+            // Agregar al centro de notificaciones
+            center.add(request, withCompletionHandler: { (error) in
+                
+                if error != nil{
+                    print(error!)
+                }
+            })
+            
             
             
         }))
