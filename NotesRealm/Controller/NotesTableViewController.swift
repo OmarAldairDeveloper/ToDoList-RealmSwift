@@ -14,15 +14,18 @@ import UserNotifications
 class NotesTableViewController: UITableViewController, SwipeTableViewCellDelegate {
     
     let realm = try! Realm()
-    
     var notes : Results<Note>?
-    
-    
     var category : Category?{
         didSet{
             loadNotes()
         }
     }
+    
+    
+    var datePicker:UIDatePicker = UIDatePicker()
+    let toolBar = UIToolbar()
+    
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +33,46 @@ class NotesTableViewController: UITableViewController, SwipeTableViewCellDelegat
         // Do any additional setup after loading the view.
     }
     
+    
+    func doDatePicker(){
+        // DatePicker
+        // datePicker = UIDatePicker()
+        
+        self.datePicker = UIDatePicker(frame:CGRect(x: 0, y: self.view.frame.size.height - 220, width:self.view.frame.size.width, height: 216)) // Acomodar el datePicker hasta abajo
+        self.datePicker.backgroundColor = UIColor.white
+        datePicker.datePickerMode = .dateAndTime
+        
+        /* ToolBar
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 255/255, alpha: 1)
+        toolBar.sizeToFit()
+        
+        // Adding Button ToolBar
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneClick))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelClick))
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: true)
+        toolBar.isUserInteractionEnabled = true
+        
+        self.toolBar.isHidden = false*/
+        
+    }
+    
+    
+    /*@objc func doneClick() {
+        let dateFormatter1 = DateFormatter()
+        dateFormatter1.dateStyle = .medium
+        dateFormatter1.timeStyle = .none
+        
+        datePicker.isHidden = true
+        self.toolBar.isHidden = true
+    }
+    
+    @objc func cancelClick() {
+        datePicker.isHidden = true
+        self.toolBar.isHidden = true
+    }*/
     
     
     @IBAction func addNewNoteAction(_ sender: UIBarButtonItem) {
@@ -40,9 +83,11 @@ class NotesTableViewController: UITableViewController, SwipeTableViewCellDelegat
         
         alert.addTextField { (txtField) in
             txtField.placeholder = "Agrega tu nota"
+            self.doDatePicker() // Inicializar el datePicker cuando vayamos a escribir la nota
+            txtField.inputView = self.datePicker // Mostrar el datePicker
+            //txtField.inputAccessoryView = self.toolBar
         }
-        
-    
+
         
         alert.addAction(UIAlertAction(title: "Crear", style: .default, handler: { (action) in
             
@@ -53,8 +98,6 @@ class NotesTableViewController: UITableViewController, SwipeTableViewCellDelegat
             note.check = false
             
             
-            
-            
             self.persistNotes(note)
             
             
@@ -62,18 +105,26 @@ class NotesTableViewController: UITableViewController, SwipeTableViewCellDelegat
             let center = UNUserNotificationCenter.current()
             
             let content = UNMutableNotificationContent()
-            content.title = "Test"
-            content.body = "This is a test of local notifications"
+            content.title = "Recordatorio"
+            content.body = note.title
             content.sound = UNNotificationSound.default
             content.threadIdentifier = "local-notifications temp"
             
             
             // Notificación: parámetros de la fecha y hora -> fecha
-            let dateComponents = DateComponents(year: 2019, month: 03, day: 04, hour: 13, minute: 20)
+            /*let dateComponents = DateComponents(year: 2019, month: 03, day: 04, hour: 13, minute: 20)
             let date = Calendar.current.date(from: dateComponents)
-            let comp2 = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute],from: date!)
+            let comp2 = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute],from: date!)*/
+            
+            
+            let date = self.datePicker.date // Obtener fecha del DatePicker
+            
+            let components = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute], from: date) // Crear componentes
+            
+            
             // Lanzador de la notificación
-            let trigger = UNCalendarNotificationTrigger(dateMatching: comp2, repeats: false)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+            
             
             // Ejecución de la notificación
             let request = UNNotificationRequest(identifier: "content", content: content, trigger: trigger)
