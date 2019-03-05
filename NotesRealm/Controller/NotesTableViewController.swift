@@ -96,6 +96,7 @@ class NotesTableViewController: UITableViewController, SwipeTableViewCellDelegat
             let note = Note()
             note.title = text
             note.check = false
+            note.notificationID = UUID().uuidString
             
             
             self.persistNotes(note)
@@ -126,8 +127,9 @@ class NotesTableViewController: UITableViewController, SwipeTableViewCellDelegat
             let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
             
             
+            
             // Ejecución de la notificación
-            let request = UNNotificationRequest(identifier: "content", content: content, trigger: trigger)
+            let request = UNNotificationRequest(identifier: note.notificationID, content: content, trigger: trigger)
             
             // Agregar al centro de notificaciones
             center.add(request, withCompletionHandler: { (error) in
@@ -249,12 +251,20 @@ class NotesTableViewController: UITableViewController, SwipeTableViewCellDelegat
                 do{
                    
                     try self.realm.write {
+                        
+                        let center = UNUserNotificationCenter.current()
+                    
+                        center.removePendingNotificationRequests(withIdentifiers: [note.notificationID]) // Borrar notificación aparte del objeto
+                        
                         self.realm.delete(note)
                         self.tableView.reloadData()
+                        
                     }
                 }catch{
                     print("No se pudo eliminar la nota")
                 }
+                
+                
                 
             }
         }
